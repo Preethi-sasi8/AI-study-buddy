@@ -2,3 +2,5 @@ flask
 crewai
 python-dotenv
 gunicorn
+tiktoken
+litellm
