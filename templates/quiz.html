@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Study Buddy - Quiz</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 0;
+        }
+
+        .container {
+            background: white;
+            width: 650px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .subtitle {
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .output {
+            margin-top: 25px;
+            text-align: left;
+            background: #f7f7f7;
+            padding: 20px;
+            border-radius: 12px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        h3 {
+            margin: 15px 0 8px 0;
+            color: #444;
+        }
+
+        .option {
+            margin: 4px 0;
+        }
+
+        .correct {
+            color: green;
+            font-weight: bold;
+            margin-top: 6px;
+        }
+
+        .nav {
+            margin-top: 30px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #667eea;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
+        .no-data {
+            color: #999;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Quiz Generator</h1>
+        <p class="subtitle">Test your knowledge</p>
+
+        {% if response %}
+            <div class="output">
+
+                {% for line in response.split('\n') if line.strip() %}
+
+                    {% if line.startswith('Question') %}
+                        <h3>{{ line }}</h3>
+
+                    {% elif line.startswith('A)') or
+                             line.startswith('B)') or
+                             line.startswith('C)') or
+                             line.startswith('D)') %}
+                        <p class="option">{{ line }}</p>
+
+                    {% elif 'Correct Answer' in line %}
+                        <p class="correct">{{ line }}</p>
+
+                    {% endif %}
+
+                {% endfor %}
+
+            </div>
+        {% else %}
+            <p class="no-data">No quiz generated yet. Go to home and enter a topic first.</p>
+        {% endif %}
+
+        <div class="nav">
+            <a href="/">Home</a>
+            <a href="/flashcards">Flashcards</a>
+        </div>
+    </div>
+</body>
+</html>

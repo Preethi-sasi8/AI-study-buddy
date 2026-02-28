@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Study Buddy</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            width: 600px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        p {
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            resize: none;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #5a67d8;
+        }
+
+        .nav {
+            margin-top: 20px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #667eea;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .output {
+            margin-top: 25px;
+            text-align: left;
+            background: #f7f7f7;
+            padding: 15px;
+            border-radius: 8px;
+            max-height: 250px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1> AI-powered  Study Buddy</h1>
+        <p>Enter a topic and start learning instantly</p>
+
+        <form method="POST">
+            <textarea name="topic" rows="3" placeholder="Enter your topic..."></textarea>
+            <button type="submit">Explain Topic</button>
+        </form>
+
+        {% if response %}
+        <div class="output">
+            {{ response }}
+        </div>
+        {% endif %}
+
+        <div class="nav">
+            <a href="/quiz">Quiz</a>
+            <a href="/flashcards">Flashcards</a>
+        </div>
+    </div>
+</body>
+</html>
