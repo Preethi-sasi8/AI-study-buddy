@@ -1,4 +1,4 @@
-
+import os
 from flask import Flask, render_template, request, session
 from agents import run_explainer, run_quiz, run_flashcards
 
@@ -34,6 +34,6 @@ def flashcards():
     result = run_flashcards(topic)
     return render_template("flashcards.html", response=result)
 
-
 if __name__ == "__main__":
-    app.run(debug=True)
+        port = int(os.environ.get("PORT", 5000))
+        app.run(host="0.0.0.0", port=port)
