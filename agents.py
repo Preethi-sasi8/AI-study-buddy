@@ -117,7 +117,7 @@ def run_flashcards(topic):
         Question: <question text>
         Answer: <answer text>
 
-        Continue for 5 flashcards.
+        Continue for 15 flashcards.
         """,
         expected_output="15 flashcards with Question and Answer clearly labeled.",
         agent=flashcard_agent
@@ -133,3 +133,4 @@ def run_flashcards(topic):
 
     result = crew.kickoff()
     return result.raw
+    
