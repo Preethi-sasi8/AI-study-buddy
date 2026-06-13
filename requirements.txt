@@ -1,5 +1,5 @@
-flask==3.1.3
-crewai[litellm]==1.14.7
-python-dotenv==1.2.2
-gunicorn==26.0.0
-tiktoken==0.13.0
+flask
+crewai[litellm]
+gunicorn
+python-dotenv
+tiktoken
