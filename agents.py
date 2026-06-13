@@ -52,7 +52,9 @@ def run_explainer(topic):
     crew = Crew(
         agents=[explainer],
         tasks=[explain_task],
-        verbose=True
+        verbose=True,
+        memory=False,
+        planning=False
     )
 
     result = crew.kickoff()
@@ -90,7 +92,9 @@ def run_quiz(topic):
     crew = Crew(
         agents=[quiz_creator],
         tasks=[quiz_task],
-        verbose=True
+        verbose=True,
+        memory=False,
+        planning=False
     )
 
     result = crew.kickoff()
@@ -122,7 +126,9 @@ def run_flashcards(topic):
     crew = Crew(
         agents=[flashcard_agent],
         tasks=[flashcard_task],
-        verbose=True
+        verbose=True,
+        memory=False,
+        planning=False
     )
 
     result = crew.kickoff()
